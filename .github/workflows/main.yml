@@ -16,5 +16,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server: ${{ secrets.FTP_SERVER }}
-          remote_path: '/C/Users/zamplia/Desktop/sachintest'
+          remote_path: 'C:\Users\zamplia\Desktop\sachintest'
           sftp_only: true
