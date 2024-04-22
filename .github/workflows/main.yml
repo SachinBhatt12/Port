@@ -17,4 +17,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server: ${{ secrets.FTP_SERVER }}
           remote_path: 'C:\Users\zamplia\Desktop\sachintest'
-          remote-port: 3389
+          sftp_only: true
