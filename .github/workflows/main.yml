@@ -10,6 +10,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Create directory if not exists
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          script: |
+            mkdir -p /C/Users/zamplia/Desktop/sachintest
       - name: Deploy file
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
@@ -18,6 +26,7 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           remote_path: '/C/Users/zamplia/Desktop/sachintest'
           sftp_only: true
+
 
         
 
