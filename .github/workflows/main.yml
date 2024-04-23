@@ -24,5 +24,5 @@ jobs:
           username: 'Administrator'
           server: '${{ secrets.SERVER_IP }}'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          remote_path: 'C:/Users/Administrator/Desktop/sachin'
+          remote_path: 'C:\Users\Administrator\Desktop\sachin'
           sftpArgs: '-o ConnectTimeout=5'
