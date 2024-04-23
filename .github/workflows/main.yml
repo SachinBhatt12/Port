@@ -53,4 +53,4 @@ jobs:
           username: ${{ secrets.WINDOWS_SERVER_USERNAME }}
           password: ${{ secrets.WINDOWS_SERVER_PASSWORD }}
           source: "."
-          target: 'C:\Users\Administrator\Desktop\sachin'
+          target: 'C:\Users\zamplia\Desktop\sachin'
