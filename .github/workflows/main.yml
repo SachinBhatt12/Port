@@ -2,20 +2,27 @@ on:
   push:
     branches:
       - main
+
 jobs:
   deploy_job:
     runs-on: ubuntu-latest
-    name: deploy
+    name: build&deploy
     steps:
+      # To use this repository's private action, you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Deploy file
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Build
+        run: yarn build
+
+      - name: deploy file to server
         uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server: ${{ secrets.FTP_SERVER }}
-          remote_path: 'C:\Users\Administrator\Desktop\sachin'
-          sftp_only: true
-         
-
+          username: 'Administrator'
+          server: '${{ secrets.SERVER_IP }}'
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          remote_path: 'C:/Users/Administrator/Desktop/sachin'
+          sftpArgs: '-o ConnectTimeout=5'
